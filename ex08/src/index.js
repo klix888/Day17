@@ -1,3 +1,4 @@
+const { indexOf } = require('lodash');
 const _ = require('lodash');
  var users = [
      {firstName: "John", lastName: "Doe", age: 24, gender: "male"},
@@ -18,18 +19,21 @@ const _ = require('lodash');
 
  function findUser(lastName, gender) {
      try {
-        var user = 
-        var iFindUser = _.join(_.values(user))
-        return user;
+        
+        var user = _.find(users, {lastName, gender});
+        var iFindUser = _.toString(`${user.firstName} ${user.lastName} is ${user.age}, ${user.gender}`);
+        return iFindUser;
      } catch (error) {
-        return error;
-        console.error();
+        return "Cannot read property 'firstName' of undefined";
+        
      }
  }
 
 
 
  getUsers();
- console.log(findUser("John", "male"));
+ console.log(findUser("Doe", "male"));
+ console.log(findUser("Doe", "female"));
+ console.log(findUser("Alex", "male"));
 
  module.exports = findUser;
